@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity} from 'react-native'
-//import AddPeople from './components/addPeople';
+import Titlebar from './components/TitleBar';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -22,7 +22,7 @@ export default function App() {
   
   return (
     <View>
-      
+      <Titlebar titleName='Channels'/> 
       <View style={styles.container}>
         <FlatList
           keyExtractor={(item) => item.id}
