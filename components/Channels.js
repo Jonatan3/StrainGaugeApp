@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback as TouchableHighlight } from 'react-native'
+import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
 import { Dimensions } from 'react-native';
 
 export default function Channels({ channelPressHandler }) {
@@ -27,7 +27,7 @@ export default function Channels({ channelPressHandler }) {
       <FlatList
         data={dummyChannels}
         renderItem={({ item, index }) => (
-          <TouchableHighlight onPress={() => channelPressHandler(item.key)}>
+          <TouchableWithoutFeedback onPress={() => channelPressHandler(item.key)}>
             <View>
             <View style={styles.item}>
               <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -46,10 +46,9 @@ export default function Channels({ channelPressHandler }) {
               alignSelf: 'center',
               paddingHorizontal: windowWidth,
             }}>
-
             </View>
             </View>
-          </TouchableHighlight>
+          </TouchableWithoutFeedback>
         )}
       />
     </View>
