@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList } from 'react-native'
+import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback as TouchableHighlight } from 'react-native'
 import { Dimensions } from 'react-native';
 
-export default function Channels() {
+export default function Channels({ channelPressHandler }) {
   const dummyChannels = [
     { name: 'The best sensor', type: 'Full bridge', key: Math.random().toString() },
     { name: 'RCS5607', type: 'Half bridge', key: Math.random().toString() },
@@ -20,14 +20,15 @@ export default function Channels() {
     { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
     { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
   ]
-  const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
 
+  const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
   return (
     <View>
       <FlatList
         data={dummyChannels}
         renderItem={({ item, index }) => (
-          <View>
+          <TouchableHighlight onPress={() => channelPressHandler(item.key)}>
+            <View>
             <View style={styles.item}>
               <View style={{ flex: 1, flexDirection: 'row' }}>
                 <View style={{ flex: 1 }}>
@@ -47,7 +48,8 @@ export default function Channels() {
             }}>
 
             </View>
-          </View>
+            </View>
+          </TouchableHighlight>
         )}
       />
     </View>

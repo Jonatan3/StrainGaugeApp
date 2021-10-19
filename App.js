@@ -14,7 +14,7 @@ export default function App() {
     { name: 'Jona', id: '7' },
   ])
 
-  const pressedListElement = (id) => {
+  const channelPressHandler = (id) => {
     console.log(id + " clicked!")
     setPeople((prevPeople) => {
       return prevPeople.filter(people => people.id != id);
@@ -23,8 +23,8 @@ export default function App() {
   
   return (
     <View>
-      <Titlebar titleName='Channels'/> 
-      <Channels />
+      <Titlebar titleName='Channels' /> 
+      <Channels channelPressHandler={channelPressHandler}/>
     </View>
   );
 }
