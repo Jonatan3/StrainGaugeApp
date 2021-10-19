@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity} from 'react-native'
 import Titlebar from './components/TitleBar';
+import Channels from './components/Channels';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -23,17 +24,7 @@ export default function App() {
   return (
     <View>
       <Titlebar titleName='Channels'/> 
-      <View style={styles.container}>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={people}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => pressedListElement(item.id)}>
-              <Text style={styles.item}>{item.name}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+      <Channels />
     </View>
   );
 }
