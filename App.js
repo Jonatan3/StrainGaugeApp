@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import Titlebar from './components/TitleBar';
 import Channels from './components/Channels';
 
@@ -20,7 +20,7 @@ export default function App() {
       return prevPeople.filter(people => people.id != id);
     })
   }
-  
+
   return (
     <View>
       <Titlebar titleName='Channels' /> 

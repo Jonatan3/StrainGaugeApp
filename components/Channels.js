@@ -1,52 +1,38 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
 import { Dimensions } from 'react-native';
+import StreamingConstructor from '../constructors/StreamingConstructor';
 
 export default function Channels({ channelPressHandler }) {
-  const dummyChannels = [
-    { name: 'The best sensor', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'RCS5607', type: 'Half bridge', key: Math.random().toString() },
-    { name: 'Ahhhhhh', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'The negotiator', type: 'Rosette bridge', key: Math.random().toString() },
-    { name: 'General Kenobi', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'This is getting', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'out of hand', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'now there are', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', key: Math.random().toString() },
-  ]
-
   const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
+  console.log(StreamingConstructor.getDummyData())
+
   return (
-    <View>
+    <View style={{ flex: -1 }}>
       <FlatList
-        data={dummyChannels}
+        data={StreamingConstructor.getDummyData()}
+        style={{ height: '100%' }}
         renderItem={({ item, index }) => (
           <TouchableWithoutFeedback onPress={() => channelPressHandler(item.key)}>
             <View>
-            <View style={styles.item}>
-              <View style={{ flex: 1, flexDirection: 'row' }}>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.name}> {item.name} </Text>
+              <View style={styles.item}>
+                <View style={{ flexDirection: 'row' }}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.name}> {item.name} </Text>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.index}> {index + 1} </Text>
+                  </View>
                 </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.index}> {index} </Text>
-                </View>
+                <Text> {item.type} </Text>
               </View>
-              <Text> {item.type} </Text>
-            </View>
-            <View style={{
-              height: 1,
-              backgroundColor: 'grey',
-              alignSelf: 'center',
-              paddingHorizontal: windowWidth,
-            }}>
-            </View>
+              <View style={{
+                height: 1,
+                backgroundColor: 'grey',
+                alignSelf: 'center',
+                paddingHorizontal: windowWidth,
+              }}>
+              </View>
             </View>
           </TouchableWithoutFeedback>
         )}
