@@ -22,7 +22,7 @@ export default function App() {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Titlebar titleName='Channels' /> 
       <Channels channelPressHandler={channelPressHandler}/>
     </View>

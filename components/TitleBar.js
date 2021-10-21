@@ -14,6 +14,7 @@ export default function TitleBar({ titleName }) {
 
 const styles = StyleSheet.create({
   titleBar: {
+    //flex: 1,
     backgroundColor: 'coral',
     paddingTop: 24,
     paddingBottom: 24,

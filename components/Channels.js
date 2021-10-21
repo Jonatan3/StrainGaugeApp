@@ -8,7 +8,7 @@ export default function Channels({ channelPressHandler }) {
   console.log(StreamingConstructor.getDummyData())
 
   return (
-    <View style={{ flex: -1 }}>
+    <View style={{ flex: 1, marginBottom: 24 }}>
       <FlatList
         data={StreamingConstructor.getDummyData()}
         style={{ height: '100%' }}
@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
   },
   itemBreaker: {
     height: 1,
-    //width: '90%',
     backgroundColor: 'grey',
     alignSelf: 'center',
   },
