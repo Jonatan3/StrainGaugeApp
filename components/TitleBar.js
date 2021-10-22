@@ -6,7 +6,7 @@ export default function TitleBar({ titleName }) {
   return (
     <View style={styles.titleBar}>
       <Text style={styles.titleText}>
-        {titleName}
+        Hej
       </Text>
     </View>
   )

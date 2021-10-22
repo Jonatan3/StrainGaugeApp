@@ -1,30 +1,17 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native'
-import Titlebar from './components/TitleBar';
-import Channels from './components/Channels';
+import Titlebar from './components/TitleBar'
+import Channels from './components/Channels'
+import Navigator from './routes/homeStack'
 
 export default function App() {
-  const [people, setPeople] = useState([
-    { name: 'Jonatan', id: '1' },
-    { name: 'Joni', id: '2' },
-    { name: 'Jonabob', id: '3' },
-    { name: 'Jonder', id: '4' },
-    { name: 'Jobob', id: '5' },
-    { name: 'Jondai', id: '6' },
-    { name: 'Jona', id: '7' },
-  ])
-
   const channelPressHandler = (id) => {
     console.log(id + " clicked!")
-    setPeople((prevPeople) => {
-      return prevPeople.filter(people => people.id != id);
-    })
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <Titlebar titleName='Channels' /> 
-      <Channels channelPressHandler={channelPressHandler}/>
+      <Navigator />
     </View>
   );
 }

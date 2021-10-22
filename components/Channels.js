@@ -18,13 +18,13 @@ export default function Channels({ channelPressHandler }) {
               <View style={styles.item}>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.name}> {item.name} </Text>
+                    <Text style={styles.name}> {/*item.name*/} hej </Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.index}> {index + 1} </Text>
+                    <Text style={styles.index}> {/*index + 1*/} hej </Text>
                   </View>
                 </View>
-                <Text> {item.type} </Text>
+                <Text> {/*item.type*/} hej </Text>
               </View>
               <View style={{
                 height: 1,
