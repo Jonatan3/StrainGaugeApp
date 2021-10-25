@@ -34,8 +34,9 @@ export default class StreamingConstructor {
   }
  
   static getDummyDataById(id) {
-    for (let i = 0; i < dummyChannels.lenght; i++ ){
-      if (this.dummyChannels[i].id == id){
+    for (let i = 0; i < this.dummyChannels.lenght; i++ ){
+      if (this.dummyChannels[i].id === id){
+        
         return this.dummyChannels[i]
       }
     }
