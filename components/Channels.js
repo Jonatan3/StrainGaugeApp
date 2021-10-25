@@ -3,28 +3,28 @@ import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'reac
 import { Dimensions } from 'react-native';
 import StreamingConstructor from '../constructors/StreamingConstructor';
 
-export default function Channels({ /*channelPressHandler*/ }) {
+export default function Channels({ channelPressHandler, navigation }) {
   const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
-  console.log(StreamingConstructor.getDummyData())
 
   return (
     <View style={{ flex: 1, marginBottom: 24 }}>
       <FlatList
         data={StreamingConstructor.getDummyData()}
         style={{ height: '100%' }}
+        keyExtractor={(item, index) => item.id}
         renderItem={({ item, index }) => (
-          <TouchableWithoutFeedback /*onPress={() => channelPressHandler(item.key)}*/>
+          <TouchableWithoutFeedback onPress={() => navigation.push('Strain Gauge', {itemId: item.id})}>
             <View>
               <View style={styles.item}>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.name}> hej </Text>
+                    <Text style={styles.name}> {item.name} </Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.index}> hej </Text>
+                    <Text style={styles.index}> {index + 1} </Text>
                   </View>
                 </View>
-                <Text> hej </Text>
+                <Text> {item.type} </Text>
               </View>
               <View style={{
                 height: 1,

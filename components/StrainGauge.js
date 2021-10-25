@@ -1,9 +1,10 @@
 import React from 'react'
+import { Text } from 'react-native'
 
-export default function StrainGauge() {
-    return(
-        <Text>
-            Strain Gauge!
-        </Text>
-    )
+export default function StrainGauge({ route, navigation }) {
+  return (
+    <Text>
+      {route.params.itemId}
+    </Text>
+  )
 }
