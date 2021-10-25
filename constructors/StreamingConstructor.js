@@ -29,14 +29,12 @@ export default class StreamingConstructor {
   }
 
   static getDummyData() {
-    //console.log(this.dummyChannels)
     return this.dummyChannels
   }
  
   static getDummyDataById(id) {
-    for (let i = 0; i < this.dummyChannels.lenght; i++ ){
+    for (let i = 0; i < this.dummyChannels.length; i++ ){
       if (this.dummyChannels[i].id === id){
-        
         return this.dummyChannels[i]
       }
     }

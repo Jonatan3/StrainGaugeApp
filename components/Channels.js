@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'reac
 import { Dimensions } from 'react-native';
 import StreamingConstructor from '../constructors/StreamingConstructor';
 
-export default function Channels({ channelPressHandler, navigation }) {
+export default function Channels({ navigation }) {
   const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
 
   return (
