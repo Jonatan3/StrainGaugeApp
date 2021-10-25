@@ -3,6 +3,10 @@ import {StyleSheet, View} from 'react-native'
 import Titlebar from './components/TitleBar'
 import Channels from './components/Channels'
 import Navigator from './routes/homeStack'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const channelPressHandler = (id) => {
@@ -10,11 +14,22 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <NavigationContainer >
+      <Stack.Navigator>
+        <Stack.Screen name='Channels' component={Channels} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+    /*<View style={{ flex: 1 }}>
+    
       <Navigator />
-    </View>
+    </View>*/
   );
 }
+
+//<Titlebar titleName='Channels' /> 
+//<Channels channelPressHandler={channelPressHandler}/>
+
 
 const styles = StyleSheet.create({
   container: {

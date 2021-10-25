@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-export default function TitleBar({ titleName }) {
+export default function TitleBar() {
 
   return (
     <View style={styles.titleBar}>
       <Text style={styles.titleText}>
-        Hej
+        Channels
       </Text>
     </View>
   )
