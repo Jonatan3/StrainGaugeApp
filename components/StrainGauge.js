@@ -10,7 +10,7 @@ export default function StrainGauge({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, marginLeft: 12, marginRight: 12 }}>
-      <Text style={styles.mainText}>
+      <Text style={styles.chartText}>
         y/t Chart
       </Text>
       <View style={{ alignItems: 'center', flex: 2, }}>
@@ -29,9 +29,7 @@ export default function StrainGauge({ route, navigation }) {
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={styles.secondaryText}>
-              Good
-            </Text>
+            <View style={styles.connectionStatus} />
           </View>
         </View>
         <View style={styles.lineBreaker} />
@@ -79,6 +77,13 @@ export default function StrainGauge({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
+  chartText: {
+    marginTop: 12,
+    marginBottom: 12,
+    marginLeft: 24,
+    fontSize: 18,
+    color: '#000',
+  },
   mainText: {
     marginLeft: 24,
     fontSize: 18,
@@ -90,11 +95,22 @@ const styles = StyleSheet.create({
     color: '#000',
     textAlign: 'right',
   },
-
   lineBreaker: {
     height: 1,
     width: '87%',
     backgroundColor: '#AAA',
     alignSelf: 'center',
+  },
+  connectionStatus: {
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    height: 20,
+    width: 20,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: '#999',
+    backgroundColor: 'green',
+    marginRight: 24,
+    marginTop: 4,
   }
 })

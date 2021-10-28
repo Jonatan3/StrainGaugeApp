@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native'
-import Titlebar from './components/TitleBar'
 import Channels from './components/Channels'
 import StrainGauge from './components/StrainGauge'
 import { NavigationContainer } from '@react-navigation/native';
