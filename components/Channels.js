@@ -7,7 +7,7 @@ export default function Channels({ navigation }) {
   const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
 
   return (
-    <View style={{ flex: 1, marginBottom: 24 }}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={StreamingConstructor.getDummyData()}
         style={{ height: '100%' }}
@@ -21,7 +21,7 @@ export default function Channels({ navigation }) {
                     <Text style={styles.name}> {item.name} </Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Text style={styles.index}> {index + 1} </Text>
+                    <Text style={styles.index}> {index < 9 ? '0' + (index + 1) : (index + 1) } </Text>
                   </View>
                 </View>
                 <Text> {item.type} </Text>

@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native'
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native'
 import Titlebar from './components/TitleBar'
 import Channels from './components/Channels'
 import StrainGauge from './components/StrainGauge'
@@ -10,16 +10,29 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    //<View>
     <NavigationContainer >
       <Stack.Navigator >
-        <Stack.Screen name='Channels' >
-          {props => <Channels {...props} />} 
+        <Stack.Screen name='Channels' options={{
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#00457b',
+          },
+          headerTitleStyle: {
+            color: '#fff'
+          }
+        }}>
+          {props => <Channels {...props} />}
         </Stack.Screen>
-        <Stack.Screen name='Strain Gauge' component={StrainGauge} />
+        <Stack.Screen name='Strain Gauge' component={StrainGauge} options={{
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#00457b',
+          },
+          headerTitleStyle: {
+            color: '#fff'
+          }
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
-    //</View>
   );
 }
-
