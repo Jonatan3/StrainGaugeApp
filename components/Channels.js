@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback, Button } from 'react-native'
 import { Dimensions } from 'react-native';
 import StreamingConstructor from '../constructors/StreamingConstructor';
 
@@ -8,6 +8,7 @@ export default function Channels({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
+      <Button title='QR Code Scanner' onPress={() => navigation.push('QR Scanner')}/>
       <FlatList
         data={StreamingConstructor.getDummyData()}
         style={{ height: '100%' }}
