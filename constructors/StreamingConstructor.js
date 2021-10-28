@@ -3,21 +3,21 @@ import React from 'react'
 export default class StreamingConstructor {
   static myInstance = null
   static dummyChannels = [
-    { name: 'The best sensor', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'RCS5607', type: 'Half bridge', id: Math.random().toString() },
-    { name: 'Ahhhhhh', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'The negotiator', type: 'Rosette bridge', id: Math.random().toString() },
-    { name: 'General Kenobi', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'This is getting', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'out of hand', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'now there are', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.random().toString() },
+    { name: 'The best sensor', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'RCS5607', type: 'Half bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'Ahhhhhh', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'The negotiator', type: 'Rosette bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'General Kenobi', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'This is getting', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'out of hand', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'now there are', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
   ]
 
   static getInstance() {
