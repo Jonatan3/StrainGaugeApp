@@ -4,6 +4,7 @@ import StreamingConstructor from '../constructors/StreamingConstructor';
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)
+  console.log(strainGauge)
   useEffect(() => {
     navigation.setOptions({ title: strainGauge.name })
   })

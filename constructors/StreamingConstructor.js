@@ -7,7 +7,7 @@ export default class StreamingConstructor {
     { name: 'RCS5607', type: 'Half bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'Ahhhhhh', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'The negotiator', type: 'Rosette bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'General Kenobi', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
+    { name: 'General Kenobi', type: 'Full bridge', id: 5156 },
     { name: 'This is getting', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'out of hand', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'now there are', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },

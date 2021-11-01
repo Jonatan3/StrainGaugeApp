@@ -32,13 +32,7 @@ export default function App() {
           }
         }}/>
         <Stack.Screen name='QR Scanner' component={QRCodeScannerScreen} options={{
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: '#00457b',
-          },
-          headerTitleStyle: {
-            color: '#fff'
-          }
+          headerShown: false,
         }}/>
       </Stack.Navigator>
     </NavigationContainer>
