@@ -14,7 +14,7 @@ export default function StrainGauge({ route, navigation }) {
       <Text style={styles.chartText}>
         y/t Chart
       </Text>
-      <View style={{ alignItems: 'center', flex: 2, }}>
+      <View style={{ alignItems: 'center', flex: 4, }}>
         <View style={{ width: '95%', height: '100%', backgroundColor: 'pink', justifyContent: 'center', alignItems: 'center' }}>
           <Text>
             Chart component :D
@@ -22,7 +22,7 @@ export default function StrainGauge({ route, navigation }) {
         </View>
       </View>
 
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 3 }}>
         <View style={{ flexDirection: 'row', marginBottom: 12, marginTop: 12, }}>
           <View style={{ flex: 1 }}>
             <Text style={styles.mainText}>
