@@ -16,9 +16,7 @@ export default function App() {
           headerStyle: {
             backgroundColor: '#00457b',
           },
-          headerTitleStyle: {
-            color: '#fff'
-          }
+          headerTintColor: '#fff'
         }}>
           {props => <Channels {...props} />}
         </Stack.Screen>
@@ -27,9 +25,7 @@ export default function App() {
           headerStyle: {
             backgroundColor: '#00457b',
           },
-          headerTitleStyle: {
-            color: '#fff'
-          }
+          headerTintColor: '#fff'
         }}/>
         <Stack.Screen name='QR Scanner' component={QRCodeScannerScreen} options={{
           headerShown: false,

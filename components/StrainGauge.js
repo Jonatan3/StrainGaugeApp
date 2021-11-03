@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-import StreamingConstructor from '../constructors/StreamingConstructor';
+import StreamingConstructor from '../constructors/StreamingConstructor'
+import { Arrow } from '../resources/SVGs'
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)

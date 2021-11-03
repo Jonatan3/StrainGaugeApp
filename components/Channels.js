@@ -16,7 +16,7 @@ export default function Channels({ navigation }) {
         renderItem={({ item, index }) => (
           <TouchableWithoutFeedback onPress={() => navigation.push('Strain Gauge', {itemId: item.id})}>
             <View>
-              <View style={styles.item}>
+              <View style={[styles.item, {backgroundColor: index % 2 == 0  ? "#fff" : "#F8F8FD"}]}>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ flex: 1 }}>
                     <Text style={styles.name}> {item.name} </Text>
@@ -27,13 +27,7 @@ export default function Channels({ navigation }) {
                 </View>
                 <Text> {item.type} </Text>
               </View>
-              <View style={{
-                height: 1,
-                backgroundColor: 'grey',
-                alignSelf: 'center',
-                paddingHorizontal: windowWidth,
-              }}>
-              </View>
+
             </View>
           </TouchableWithoutFeedback>
         )}
