@@ -1,19 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { RNCamera } from 'react-native-camera'
 import { View, ToastAndroid, Dimensions, Button, Text } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
 import { TouchableWithoutFeedback } from 'react-native'
-import { Arrow, Flash_off, Fslash_off } from '../resources/SVGs'
-
+import { Arrow, Flash_off } from '../resources/SVGs'
 
 export default function QRCodeScannerScreen({ route, navigation }) {
-  
+  const [flash, setFlash] = useState(RNCamera.Constants.FlashMode.off)
+
+  const onFlashClick = () => {
+    if (flash === RNCamera.Constants.FlashMode.torch) {
+      setFlash(RNCamera.Constants.FlashMode.off)
+    }
+    else {
+      setFlash(RNCamera.Constants.FlashMode.torch)
+    }
+  }
 
   return (
     <View>
       <QRCodeScanner
-        flashMode={RNCamera.Constants.FlashMode.torch}
+        flashMode={flash}
         showMarker={true}
         onRead={onSucces}
         cameraStyle={{ height: Dimensions.get('window').height }}
@@ -33,7 +41,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
               </Text>
             </View>
             <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }}>
-              <TouchableWithoutFeedback onPress={() => RNCamera.Constants.FlashMode.torch} >
+              <TouchableWithoutFeedback onPress={() => onFlashClick()} >
                 <View>
                   <Flash_off />
                 </View>
@@ -44,10 +52,6 @@ export default function QRCodeScannerScreen({ route, navigation }) {
       />
     </View>
   )
-}
-
-const onFlashClick = (e) => {
-
 }
 
 const onSucces = (e) => {
