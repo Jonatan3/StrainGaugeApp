@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback, Button } from 'react-native'
 import { Dimensions } from 'react-native';
 import StreamingConstructor from '../constructors/StreamingConstructor';
+import QRCodeButton from './QRCodeButton';
 
 export default function Channels({ navigation }) {
   const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
@@ -32,6 +33,9 @@ export default function Channels({ navigation }) {
           </TouchableWithoutFeedback>
         )}
       />
+      <View style={{ position: 'absolute', top: 630, right: 80 }}>
+        <QRCodeButton onPressHandler={() => navigation.push('QR Scanner')}  />
+      </View>
     </View>
   )
 }

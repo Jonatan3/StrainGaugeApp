@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
-import { Arrow } from '../resources/SVGs'
+import QRCodeButton from './QRCodeButton'
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)
-  console.log(strainGauge)
   useEffect(() => {
     navigation.setOptions({ title: strainGauge.name })
   })
@@ -74,6 +73,7 @@ export default function StrainGauge({ route, navigation }) {
           </View>
         </View>
       </View>
+      <QRCodeButton onPressHandler={() => navigation.push('QR Scanner')} />
     </View>
   )
 }
