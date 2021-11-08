@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { RNCamera } from 'react-native-camera'
 import { View, ToastAndroid, Dimensions, Button, Text } from 'react-native'
@@ -18,6 +18,9 @@ export default function QRCodeScannerScreen({ route, navigation }) {
     }
   }
 
+  const SCREEN_WIDTH = Dimensions.get("window").width;
+  const SCREEN_HEIGHT = Dimensions.get("window").height;
+
   return (
     <View>
       <QRCodeScanner
@@ -27,26 +30,35 @@ export default function QRCodeScannerScreen({ route, navigation }) {
         cameraStyle={{ height: Dimensions.get('window').height }}
         ref={(node) => { this.scanner = node }}
         customMarker={
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }} >
-              <TouchableWithoutFeedback onPress={() => navigation.pop()} >
-                <View>
-                  <Arrow style={{ justifyContent: 'space-around' }} />
-                </View>
-              </TouchableWithoutFeedback>
+          <View style={{ flex: 1, width: SCREEN_WIDTH }}>
+            <View style={{ flex: 1, flexDirection: 'row', width: SCREEN_WIDTH, height: SCREEN_WIDTH, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+              <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }} >
+                <TouchableWithoutFeedback onPress={() => navigation.pop()} >
+                  <View>
+                    <Arrow style={{ justifyContent: 'space-around' }} />
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+              <View style={{ flex: 4, justifyContent: 'space-around', flexDirection: 'row' }}>
+                <Text style={{ marginTop: 24, color: '#fff', fontSize: 16 }}>
+                  Scan QR to navigate to channel
+                </Text>
+              </View>
+              <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }}>
+                <TouchableWithoutFeedback onPress={() => onFlashClick()} >
+                  <View>
+                    <Flash_off />
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
             </View>
-            <View style={{ flex: 4, justifyContent: 'space-around', flexDirection: 'row' }}>
-              <Text style={{ marginTop: 24, color: '#fff', fontSize: 16 }}>
-                Scan QR to navigate to channel
-              </Text>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
+              <View style={{ flex: 3, backgroundColor: 'transparent' }} />
+              <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
+
             </View>
-            <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }}>
-              <TouchableWithoutFeedback onPress={() => onFlashClick()} >
-                <View>
-                  <Flash_off />
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
+            <View style={{ flex: 1, height: SCREEN_WIDTH, width: SCREEN_WIDTH, backgroundColor: 'rgba(0,0,0,0.5)' }} />
           </View>
         }
       />

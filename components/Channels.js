@@ -9,7 +9,6 @@ export default function Channels({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <Button title='QR Code Scanner' onPress={() => navigation.push('QR Scanner')}/>
       <FlatList
         data={StreamingConstructor.getDummyData()}
         style={{ height: '100%' }}
