@@ -12,12 +12,6 @@ export default class StreamingConstructor {
     { name: 'out of hand', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'now there are', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
-    { name: 'two of them', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
   ]
 
   static getInstance() {
