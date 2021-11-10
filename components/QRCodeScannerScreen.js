@@ -18,8 +18,17 @@ export default function QRCodeScannerScreen({ route, navigation }) {
     }
   }
 
+  const onSucces = (e) => {
+    if (StreamingConstructor.getDummyDataById(parseInt(e.data)) !== null) {
+      navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
+    }
+    else {
+      ToastAndroid.show('ERROR! no strain gauge with id of ' + e.data + ' found!', ToastAndroid.LONG)
+      setTimeout(() => { this.scanner.reactivate() }, 3000)
+    }
+  }
+
   const SCREEN_WIDTH = Dimensions.get("window").width;
-  const SCREEN_HEIGHT = Dimensions.get("window").height;
 
   return (
     <View>
@@ -31,7 +40,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
         ref={(node) => { this.scanner = node }}
         customMarker={
           <View style={{ flex: 1, width: SCREEN_WIDTH }}>
-            <View style={{ flex: 1, flexDirection: 'row', width: SCREEN_WIDTH, height: SCREEN_WIDTH, backgroundColor: 'rgba(0,0,0,0.5)' }}>
+            <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.5)' }}>
               <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }} >
                 <TouchableWithoutFeedback onPress={() => navigation.pop()} >
                   <View>
@@ -54,24 +63,14 @@ export default function QRCodeScannerScreen({ route, navigation }) {
             </View>
             <View style={{ flex: 1, flexDirection: 'row' }}>
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
-              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 1, borderColor: '#fff' }} />
+              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 2, borderColor: '#fff', borderRadius: 8, shadowOpacity: 1, shadowColor: '#000', shadowRadius: 400 }} />
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
 
             </View>
-            <View style={{ flex: 1, height: SCREEN_WIDTH, width: SCREEN_WIDTH, backgroundColor: 'rgba(0,0,0,0.5)' }} />
+            <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
           </View>
         }
       />
     </View>
   )
-}
-
-const onSucces = (e) => {
-  if (StreamingConstructor.getDummyDataById(parseInt(e.data)) !== null) {
-    navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
-  }
-  else {
-    ToastAndroid.show('ERROR! no strain gauge with id of ' + e.data + ' found!', ToastAndroid.LONG)
-    setTimeout(() => { this.scanner.reactivate() }, 3000)
-  }
 }
