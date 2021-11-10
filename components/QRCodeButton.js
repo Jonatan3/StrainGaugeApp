@@ -9,7 +9,7 @@ export default function QRCodeButton({ onPressHandler }) {
       <TouchableOpacity onPress={() => onPressHandler()}>
         <View style={styles.button}>
           <Text style={{ color: '#fff', padding: 8, paddingLeft: 16 }}>
-            Hejsa
+            Scan QR
           </Text>
           <View style={{ marginRight: 16 }}>
             <Scan_qr />
