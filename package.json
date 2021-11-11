@@ -10,7 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@hbk/ui-streamingclient": "^0.6.0-main.63",
+    "@hbk/ui-primitives": "^0.38.7-main.242",
+    "@hbk/ui-resources": "^0.13.21-main.190",
+    "@hbk/ui-streamingclient": "^0.4.39-main.59",
     "@hbk/ui-visualizations": "^0.12.1-main.112",
     "@react-navigation/native-stack": "^6.2.5",
     "react": "17.0.2",
