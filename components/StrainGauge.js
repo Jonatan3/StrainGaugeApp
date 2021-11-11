@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
 import QRCodeButton from './QRCodeButton'
-import { HBKSignalYTChart } from '@hbk/ui-visualizations'
+import { HBKBox } from '@hbk/ui-primitives'
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)
@@ -11,13 +11,15 @@ export default function StrainGauge({ route, navigation }) {
   })
 
   return (
+
     <View style={{ flex: 1, marginLeft: 12, marginRight: 12 }}>
+      <View><HBKBox><Text>HEJSA</Text></HBKBox></View>
       <Text style={styles.chartText}>
         y/t Chart
       </Text>
       <View style={{ alignItems: 'center', flex: 4, }}>
         <View style={{ width: '95%', height: '100%', backgroundColor: 'pink', justifyContent: 'center', alignItems: 'center' }}>
-          <HBKSignalYTChart />
+
         </View>
       </View>
 

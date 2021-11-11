@@ -4,7 +4,7 @@ import StrainGauge from './components/StrainGauge'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QRCodeScannerScreen from './components/QRCodeScannerScreen';
-
+import "@hbk/ui-resources/build/index.css";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
