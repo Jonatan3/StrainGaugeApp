@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
 import QRCodeButton from './QRCodeButton'
+import ChannelChart from './ChannelChart'
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)
@@ -15,10 +16,8 @@ export default function StrainGauge({ route, navigation }) {
         y/t Chart
       </Text>
       <View style={{ alignItems: 'center', flex: 4, }}>
-        <View style={{ width: '95%', height: '100%', backgroundColor: 'pink', justifyContent: 'center', alignItems: 'center' }}>
-          <Text>
-            Chart component :D
-          </Text>
+        <View style={{ width: '95%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+          <ChannelChart channelId={2} />
         </View>
       </View>
 
