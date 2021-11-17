@@ -1,7 +1,13 @@
 import React from 'react'
+import { Ringbuffer, StreamingClient, TableBuffer } from '@hbk/ui-streamingclient'
 
 export default class StreamingConstructor {
-  constructor(){}
+  constructor() {
+    
+
+
+
+  }
 
   static myInstance = null
   dummyChannels = [

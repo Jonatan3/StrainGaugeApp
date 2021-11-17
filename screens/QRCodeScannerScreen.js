@@ -20,6 +20,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
 
   const onSucces = (e) => {
     if (StreamingConstructor.getInstance().getDummyDataById(parseInt(e.data)) !== null) {
+      setTimeout(() => { this.scanner.reactivate() }, 100)
       navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
     }
     else {
@@ -35,7 +36,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
       <QRCodeScanner
         flashMode={flash}
         showMarker={true}
-        onRead={onSucces}
+        onRead={() => onSucces()}
         cameraStyle={{ height: Dimensions.get('window').height }}
         ref={(node) => { this.scanner = node }}
         customMarker={
@@ -63,7 +64,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
             </View>
             <View style={{ flex: 1, flexDirection: 'row' }}>
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
-              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 2, borderColor: 'white', borderRadius: 8, shadowOpacity: 1, shadowColor: 'black', shadowRadius: 400 }} />
+              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 4, borderColor: 'white', borderRadius: 16 }} />
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
 
             </View>
