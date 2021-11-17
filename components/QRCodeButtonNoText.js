@@ -6,7 +6,7 @@ import colors from '../resources/colors'
 
 export default function QRCodeButtonNoText({ onPressHandler }) {
   return (
-    <View style={{ flex: 1, alignSelf: 'center' }}>
+    <View style={{ flex: 1, alignContent: 'center' }}>
       <TouchableOpacity onPress={() => onPressHandler()}>
         <View style={styles.button}>
           <View style={{ margin: 10 }}>
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     borderRadius: 100, 
     borderBottomWidth: 2, 
     borderRightWidth: 1, 
-    borderLeftWidth: 1, 
     borderColor: colors.qrBorder,
     alignItems: 'center',
     justifyContent: 'center'

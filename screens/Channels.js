@@ -7,6 +7,9 @@ import { Dimensions } from 'react-native'
 
 export default function Channels({ navigation }) {
 
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
+
   return (
     <View style={{ flex: 1 }}>
       <FlatList
@@ -31,7 +34,11 @@ export default function Channels({ navigation }) {
           </TouchableWithoutFeedback>
         )}
       />
-      <View style={{ flex: 1, alignSelf: 'flex-end', justifyContent: 'flex-end', paddingBottom: 30, paddingRight: 30 }}>
+      {/* TODO change this back to : <View style={{ flex: 1, alignSelf: 'flex-end', justifyContent: 'flex-end', paddingBottom: 30, paddingRight: 30 }}>
+        <QRCodeButtonNoText onPressHandler={() => navigation.push('QR Scanner')}  />
+      </View> 
+      MEN DET ER LORT!!!!*/}
+      <View style={{ position: 'absolute', top: (windowHeight/1.25), right: (windowWidth / 10) }}>
         <QRCodeButtonNoText onPressHandler={() => navigation.push('QR Scanner')}  />
       </View>
     </View>
