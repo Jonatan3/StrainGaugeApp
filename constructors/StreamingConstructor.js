@@ -1,8 +1,10 @@
 import React from 'react'
 
 export default class StreamingConstructor {
+  constructor(){}
+
   static myInstance = null
-  static dummyChannels = [
+  dummyChannels = [
     { name: 'The best sensor', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'RCS5607', type: 'Half bridge', id: Math.floor(Math.random()*10000).toString() },
     { name: 'Ahhhhhh', type: 'Full bridge', id: Math.floor(Math.random()*10000).toString() },
@@ -16,22 +18,26 @@ export default class StreamingConstructor {
 
   static getInstance() {
     if (StreamingConstructor.myInstance == null) {
-      StreamingConstructor = new StreamingConstructor()
+      this.myInstance = new StreamingConstructor()
     }
 
     return this.myInstance
   }
 
-  static getDummyData() {
+  getDummyData = () =>  {
     return this.dummyChannels
   }
  
-  static getDummyDataById(id) {
+  getDummyDataById = (id) => {
     for (let i = 0; i < this.dummyChannels.length; i++ ){
       if (this.dummyChannels[i].id === id){
         return this.dummyChannels[i]
       }
     }
     return null
+  }
+
+  getDummyIds = () => {
+    return this.dummyChannels.map(channel => channel.id)
   }
 }

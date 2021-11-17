@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
-import QRCodeButton from './QRCodeButton'
-import ChannelChart from './ChannelChart'
+import QRCodeButton from '../components/QRCodeButton'
+import ChannelChart from '../components/ChannelChart'
 
 export default function StrainGauge({ route, navigation }) {
-  const strainGauge = StreamingConstructor.getDummyDataById(route.params.itemId)
+  const strainGauge = StreamingConstructor.getInstance().getDummyDataById(route.params.itemId)
   useEffect(() => {
     navigation.setOptions({ title: strainGauge.name })
   })
@@ -83,17 +83,17 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginLeft: 24,
     fontSize: 18,
-    color: '#000',
+    color: 'black',
   },
   mainText: {
     marginLeft: 24,
     fontSize: 18,
-    color: '#000',
+    color: 'black',
   },
   secondaryText: {
     marginRight: 24,
     fontSize: 18,
-    color: '#000',
+    color: 'black',
     textAlign: 'right',
   },
   lineBreaker: {

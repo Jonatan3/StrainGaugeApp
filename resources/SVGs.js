@@ -1,5 +1,6 @@
 import React from 'react'
-import Svg, { Path, G } from 'react-native-svg'
+import Svg, { Path, Rect } from 'react-native-svg'
+import colors from './colors'
 
 export function Arrow() {
   return (
@@ -18,9 +19,18 @@ export function Scan_qr() {
   )
 }
 
+export function Scan_qr_large() {
+  return (
+    <Svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="36px" viewBox="0 0 24 24" width="36px" fill="#FFFFFF">
+      <Rect fill="none" height="24" width="24"/>
+      <Path d="M9.5,6.5v3h-3v-3H9.5 M11,5H5v6h6V5L11,5z M9.5,14.5v3h-3v-3H9.5 M11,13H5v6h6V13L11,13z M17.5,6.5v3h-3v-3H17.5 M19,5h-6v6 h6V5L19,5z M13,13h1.5v1.5H13V13z M14.5,14.5H16V16h-1.5V14.5z M16,13h1.5v1.5H16V13z M13,16h1.5v1.5H13V16z M14.5,17.5H16V19h-1.5 V17.5z M16,16h1.5v1.5H16V16z M17.5,14.5H19V16h-1.5V14.5z M17.5,17.5H19V19h-1.5V17.5z M22,7h-2V4h-3V2h5V7z M22,22v-5h-2v3h-3v2 H22z M2,22h5v-2H4v-3H2V22z M2,2v5h2V4h3V2H2z"/>
+    </Svg>
+  )
+}
+
 export function Flash_off() {
   return (
-    <Svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#EAEAEE">
+    <Svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill={colors.svgFill}>
       <Path d="M0 0h24v24H0V0z" fill="none"/>
       <Path d="M16.12 11.5c.39-.67-.09-1.5-.86-1.5h-1.87l2.28 2.28.45-.78zm.16-8.05c.33-.67-.15-1.45-.9-1.45H8c-.55 0-1 .45-1 1v.61l6.13 6.13 3.15-6.29zm2.16 14.43L4.12 3.56c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L7 9.27V12c0 .55.45 1 1 1h2v7.15c0 .51.67.69.93.25l2.65-4.55 3.44 3.44c.39.39 1.02.39 1.41 0 .4-.39.4-1.02.01-1.41z"/>
     </Svg>
@@ -29,7 +39,7 @@ export function Flash_off() {
 
 export function Flash_on() {
   return (
-    <Svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#EAEAEE">
+    <Svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill={colors.svgFill}>
       <Path d="M0 0h24v24H0V0z" fill="none"/>
       <Path d="M7 3v9c0 .55.45 1 1 1h2v7.15c0 .51.67.69.93.25l5.19-8.9c.39-.67-.09-1.5-.86-1.5H13l2.49-6.65c.25-.65-.23-1.35-.93-1.35H8c-.55 0-1 .45-1 1z"/>
     </Svg>

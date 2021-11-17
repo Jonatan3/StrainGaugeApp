@@ -4,7 +4,7 @@ import { RNCamera } from 'react-native-camera'
 import { View, ToastAndroid, Dimensions, Button, Text } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor'
 import { TouchableWithoutFeedback } from 'react-native'
-import { Arrow, Flash_off, Flash_on } from '../resources/SVGs'
+import { Arrow, Flash_off, Flash_on } from '../resources/svgs'
 
 export default function QRCodeScannerScreen({ route, navigation }) {
   const [flash, setFlash] = useState(RNCamera.Constants.FlashMode.off)
@@ -19,7 +19,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
   }
 
   const onSucces = (e) => {
-    if (StreamingConstructor.getDummyDataById(parseInt(e.data)) !== null) {
+    if (StreamingConstructor.getInstance().getDummyDataById(parseInt(e.data)) !== null) {
       navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
     }
     else {
@@ -49,7 +49,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
                 </TouchableWithoutFeedback>
               </View>
               <View style={{ flex: 4, justifyContent: 'space-around', flexDirection: 'row' }}>
-                <Text style={{ marginTop: 24, color: '#fff', fontSize: 16 }}>
+                <Text style={{ marginTop: 24, color: 'white', fontSize: 16 }}>
                   Scan QR to navigate to channel
                 </Text>
               </View>
@@ -63,7 +63,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
             </View>
             <View style={{ flex: 1, flexDirection: 'row' }}>
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
-              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 2, borderColor: '#fff', borderRadius: 8, shadowOpacity: 1, shadowColor: '#000', shadowRadius: 400 }} />
+              <View style={{ flex: 3, backgroundColor: 'transparent', borderWidth: 2, borderColor: 'white', borderRadius: 8, shadowOpacity: 1, shadowColor: 'black', shadowRadius: 400 }} />
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }} />
 
             </View>

@@ -1,22 +1,22 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback, Button } from 'react-native'
-import { Dimensions } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
 import StreamingConstructor from '../constructors/StreamingConstructor';
-import QRCodeButton from './QRCodeButton';
+import QRCodeButtonNoText from '../components/QRCodeButtonNoText';
+import colors from '../resources/colors';
+import { Dimensions } from 'react-native'
 
 export default function Channels({ navigation }) {
-  const windowWidth = (parseInt(Dimensions.get('window').width) / 2) - 24
 
   return (
     <View style={{ flex: 1 }}>
       <FlatList
-        data={StreamingConstructor.getDummyData()}
+        data={StreamingConstructor.getInstance().getDummyData()}
         style={{ height: '100%' }}
         keyExtractor={(item, index) => item.id}
         renderItem={({ item, index }) => (
           <TouchableWithoutFeedback onPress={() => navigation.push('Strain Gauge', {itemId: item.id})}>
             <View>
-              <View style={[styles.item, {backgroundColor: index % 2 == 0  ? "#fff" : "#F8F8FD"}]}>
+              <View style={[styles.item, {backgroundColor: index % 2 == 0  ? "white" : colors.channelGrey }]}>
                 <View style={{ flexDirection: 'row' }}>
                   <View style={{ flex: 1 }}>
                     <Text style={styles.name}> {item.name} </Text>
@@ -27,13 +27,12 @@ export default function Channels({ navigation }) {
                 </View>
                 <Text> {item.type} </Text>
               </View>
-
             </View>
           </TouchableWithoutFeedback>
         )}
       />
-      <View style={{ position: 'absolute', top: 630, right: 80 }}>
-        <QRCodeButton onPressHandler={() => navigation.push('QR Scanner')}  />
+      <View style={{ flex: 1, alignSelf: 'flex-end', justifyContent: 'flex-end', paddingBottom: 30, paddingRight: 30 }}>
+        <QRCodeButtonNoText onPressHandler={() => navigation.push('QR Scanner')}  />
       </View>
     </View>
   )

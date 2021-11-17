@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Chart, Line, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
+import colors from "../resources/colors";
 
 export default function ChannelChart(channelId) {
   const [data, setdata] = useState([
@@ -24,7 +25,7 @@ export default function ChannelChart(channelId) {
       <VerticalAxis tickCount={6} />
       <HorizontalAxis tickCount={6} />
       <Line 
-        theme={{ stroke: { color: '#00457b', width: 2 } }} 
+        theme={{ stroke: { color: colors.header, width: 2 } }} 
         smoothing="bezier" 
       /> 
 
