@@ -4,8 +4,12 @@ import StreamingConstructor from '../constructors/StreamingConstructor';
 import QRCodeButtonNoText from '../components/QRCodeButtonNoText';
 import colors from '../resources/colors';
 import { Dimensions } from 'react-native'
+import StreamingConnector from '../constructors/StreamingConnector';
 
 export default function Channels({ navigation }) {
+
+  const streamingConnector = new StreamingConnector()
+  streamingConnector.connect()
 
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
