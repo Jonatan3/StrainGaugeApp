@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Channels from './screens/Channels'
 import StrainGauge from './screens/StrainGauge'
 import { NavigationContainer } from '@react-navigation/native';

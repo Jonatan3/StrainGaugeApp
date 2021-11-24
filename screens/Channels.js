@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
-import StreamingConstructor from '../constructors/StreamingConstructor';
+import StreamingConstructor from '../Streaming/StreamingConstructor';
 import QRCodeButtonNoText from '../components/QRCodeButtonNoText';
 import colors from '../resources/colors';
 import { Dimensions } from 'react-native'
-import StreamingConnector from '../constructors/StreamingConnector';
+import StreamingConnector from '../Streaming/StreamingConnector';
 
 export default function Channels({ navigation }) {
 
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     paddingBottom: 12,
-
   },
   index: {
     textAlign: 'right',

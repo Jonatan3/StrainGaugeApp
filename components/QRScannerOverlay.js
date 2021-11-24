@@ -10,6 +10,7 @@ export default function QRScannerOverlay({ onFlashClick, flash, navigation }) {
 
   return (
     <View style={{ flex: 1, width: SCREEN_WIDTH }}>
+      {/* Top part of the greyed out area, and contain buttons and text in the top */}
       <View style={{ flex: 1, flexDirection: 'row', backgroundColor: colors.cameraNoFocus }}>
         <View style={{ marginTop: 24, flex: 1, justifyContent: 'space-around', flexDirection: 'row' }} >
           <TouchableWithoutFeedback onPress={() => navigation.pop()} >
@@ -31,6 +32,7 @@ export default function QRScannerOverlay({ onFlashClick, flash, navigation }) {
           </TouchableWithoutFeedback>
         </View>
       </View>
+      {/* Middel part of the overlay */}
       <View style={{ flex: 1, flexDirection: 'row' }}>
         <View style={{ flex: 1, backgroundColor: colors.cameraNoFocus }} />
 
@@ -50,6 +52,7 @@ export default function QRScannerOverlay({ onFlashClick, flash, navigation }) {
         <View style={{ flex: 1, backgroundColor: colors.cameraNoFocus }} />
 
       </View>
+      {/* last part of the of the overlay */}
       <View style={{ flex: 1, backgroundColor: colors.cameraNoFocus }} />
     </View>
   )

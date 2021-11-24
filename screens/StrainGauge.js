@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-import StreamingConstructor from '../constructors/StreamingConstructor'
+import StreamingConstructor from '../Streaming/StreamingConstructor'
 import QRCodeButton from '../components/QRCodeButton'
 import ChannelChart from '../components/ChannelChart'
 

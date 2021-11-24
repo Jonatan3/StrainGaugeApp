@@ -10,9 +10,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@apollo/client": "^3.4.17",
     "@hbk/ui-streamingclient": "^0.6.0-main.63",
     "@hbk/ui-visualizations": "^0.12.1-main.112",
     "@react-navigation/native-stack": "^6.2.5",
+    "graphql": "^15.7.2",
     "react": "17.0.2",
     "react-native": "0.66.0",
     "react-native-camera": "^4.2.1",

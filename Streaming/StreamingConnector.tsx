@@ -1,5 +1,8 @@
 import React from "react";
 import { RingBuffer, StreamingClient, TableBufferManager } from '@hbk/ui-streamingclient'
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+
+// This class might never work!
 
 export default class StreamingConnector {
     streamingClient: StreamingClient
@@ -7,16 +10,21 @@ export default class StreamingConnector {
     tableBufferManager: TableBufferManager
 
     async connect() {
-        const graphqlurl = 'http://192.168.56.1:25702/'
+        const graphqlurl = 'http://192.168.137.1:25702/'
         //this.streamingClient = new StreamingClient(graphqlurl)
 
-        //this.engineId = await this.streamingClient.addGeneratorAsync()
+        /*const client = new ApolloClient({
+            uri: graphqlurl + 'dataHighway/',
+            cache: new InMemoryCache(),
+            connectToDevTools: true,
+        })*/
+
         /*const generators = await streamingClient.getEngineIdsAsync()
-    const generatorIds = generators as any[]
+        const generatorIds = generators as any[]
 
-    engineId = generatorIds[0].id*/
+        engineId = generatorIds[0].id
 
-        /*const signals = (await this.streamingClient.getSignalIdsForEngineAsync(
+        const signals = (await this.streamingClient.getSignalIdsForEngineAsync(
             this.engineId
         )) as { name: string; id: string }[]
 
