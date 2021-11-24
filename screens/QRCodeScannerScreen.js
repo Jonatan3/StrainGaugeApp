@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { RNCamera } from 'react-native-camera'
 import { View, ToastAndroid, Dimensions } from 'react-native'
-import StreamingConstructor from '../constructors/StreamingConstructor'
+import StreamingConstructor from '../Streaming/StreamingConstructor'
 import QRScannerOverlay from '../components/QRScannerOverlay'
 
 export default function QRCodeScannerScreen({ route, navigation }) {
