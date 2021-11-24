@@ -14,11 +14,19 @@ export default class DummyChannel {
         this.interval = setInterval(this.generateDataPoint(), 200)
     }
 
+    stopDataGeneration = () => {
+        this.interval = null
+    }
+
     generateDataPoint = () => {
         this.channelData.push({ x: 1, y: 1 })
     }
 
     getChannelData = () => {
         return this.channelData
+    }
+
+    getId = () => {
+        return this.id
     }
 }
