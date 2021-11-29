@@ -1,13 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../Streaming/StreamingConstructor'
 import QRCodeButton from '../components/QRCodeButton'
 import ChannelChart from '../components/ChannelChart'
 
 export default function StrainGauge({ route, navigation }) {
-  const strainGauge = StreamingConstructor.getInstance().getDummyDataById(route.params.itemId)
+  const strainGauge = StreamingConstructor.getInstance().getChannelById(route.params.itemId)
+  const [channelData, setChannelData] = useState(strainGauge.getChannelData())
+  var interval = null
+
+  const startDataGeneration = () => {
+    if (interval !== null) {
+      return
+    }
+    interval = (setInterval(() => {
+      setChannelData(strainGauge.generateDataPoint())
+    }, 100))
+  }
+
+  // The component will unmount on every update, however this ensure that no data leak will happen!
+  const stopDataGeneration = () => {
+    if (interval === null) {
+      return
+    }
+    clearInterval(interval)
+    interval = null
+  }
+
   useEffect(() => {
-    navigation.setOptions({ title: strainGauge.name })
+    navigation.setOptions({ title: strainGauge.getName() })
+    if (strainGauge.getConnectionStatus()){
+      startDataGeneration()
+    }
+    return () => {
+      stopDataGeneration()
+    }
   })
 
   return (
@@ -17,7 +44,7 @@ export default function StrainGauge({ route, navigation }) {
       </Text>
       <View style={{ alignItems: 'center', flex: 4, }}>
         <View style={{ width: '95%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-          <ChannelChart channelId={2} />
+          {<ChannelChart channelData={channelData} channelId={strainGauge.getId()} />}
         </View>
       </View>
 
@@ -29,7 +56,7 @@ export default function StrainGauge({ route, navigation }) {
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            <View style={styles.connectionStatus} />
+            <View style={[styles.connectionStatus, strainGauge.getConnectionStatus() ? { backgroundColor: 'green' } : { backgroundColor: 'red' }]} />
           </View>
         </View>
         <View style={styles.lineBreaker} />
@@ -41,7 +68,7 @@ export default function StrainGauge({ route, navigation }) {
           </View>
           <View style={{ flex: 1 }}>
             <Text style={styles.secondaryText}>
-              {strainGauge.type}
+              {strainGauge.getType()}
             </Text>
           </View>
         </View>
@@ -54,7 +81,7 @@ export default function StrainGauge({ route, navigation }) {
           </View>
           <View style={{ flex: 1 }}>
             <Text style={styles.secondaryText}>
-              {strainGauge.id}
+              {strainGauge.getId()}
             </Text>
           </View>
         </View>
@@ -67,7 +94,7 @@ export default function StrainGauge({ route, navigation }) {
           </View>
           <View style={{ flex: 1 }}>
             <Text style={styles.secondaryText}>
-              5
+              {Math.round(channelData[channelData.length - 1].y * 1000) / 1000}
             </Text>
           </View>
         </View>
@@ -110,7 +137,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#999',
-    backgroundColor: 'green',
     marginRight: 24,
     marginTop: 4,
   }

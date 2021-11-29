@@ -4,7 +4,8 @@ const colors = {
   qrBorder: '#00817C',
   svgFill: '#eaeaee',
   channelGrey: '#F8F8FD',
-  cameraNoFocus: 'rgba(0,0,0,0.5)'
+  cameraNoFocus: 'rgba(0,0,0,0.5)',
+  stroke: '#4D97D0',
 }
 
 export default colors

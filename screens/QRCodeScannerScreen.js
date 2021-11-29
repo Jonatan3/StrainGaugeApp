@@ -18,7 +18,7 @@ export default function QRCodeScannerScreen({ route, navigation }) {
   }
 
   const onSucces = (e) => {
-    if (StreamingConstructor.getInstance().getDummyDataById(parseInt(e.data)) !== null) {
+    if (StreamingConstructor.getInstance().getChannelById(parseInt(e.data)) !== null) {
       setTimeout(() => { this.scanner.reactivate() }, 100)
       navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
     }

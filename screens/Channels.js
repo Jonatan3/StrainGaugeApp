@@ -17,7 +17,7 @@ export default function Channels({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <FlatList
-        data={StreamingConstructor.getInstance().getDummyData()}
+        data={StreamingConstructor.getInstance().getChannels()}
         style={{ height: '100%' }}
         keyExtractor={(item, index) => item.id}
         renderItem={({ item, index }) => (
