@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../Streaming/StreamingConstructor'
 import QRCodeButton from '../components/QRCodeButton'
 import ChannelChart from '../components/ChannelChart'
+import colors from '../resources/colors'
 
 export default function StrainGauge({ route, navigation }) {
   const strainGauge = StreamingConstructor.getInstance().getChannelById(route.params.itemId)
@@ -29,7 +30,7 @@ export default function StrainGauge({ route, navigation }) {
 
   useEffect(() => {
     navigation.setOptions({ title: strainGauge.getName() })
-    if (strainGauge.getConnectionStatus()){
+    if (strainGauge.getConnectionStatus()) {
       startDataGeneration()
     }
     return () => {
@@ -56,7 +57,9 @@ export default function StrainGauge({ route, navigation }) {
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            <View style={[styles.connectionStatus, strainGauge.getConnectionStatus() ? { backgroundColor: 'green' } : { backgroundColor: 'red' }]} />
+            <View style={[styles.connectionStatus, strainGauge.getConnectionStatus()
+              ? { backgroundColor: colors.connectionGood }
+              : { backgroundColor: colors.connectionBad }]} />
           </View>
         </View>
         <View style={styles.lineBreaker} />
@@ -135,8 +138,6 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     borderRadius: 50,
-    borderWidth: 1,
-    borderColor: '#999',
     marginRight: 24,
     marginTop: 4,
   }
