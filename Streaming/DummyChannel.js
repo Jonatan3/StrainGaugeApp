@@ -10,7 +10,7 @@ export default class DummyChannel {
         this.connectionStatus = connectionStatus
     }
     generateDataPoint = () => {
-        this.channelData.push({ x: (this.channelData[this.channelData.length - 1].x + 0.1), y: (Math.random() * 10 - 5) })
+        this.channelData.push({ x: (this.channelData[this.channelData.length - 1].x + 0.1), y: ((Math.random() * 10) - 5) })
         return [...this.channelData]
     }
 

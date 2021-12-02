@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { Chart, Line, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
 import colors from "../resources/colors";
 import StreamingConstructor from "../Streaming/StreamingConstructor";
 
 export default ChannelChart = ({ channelData, channelId }) => {
   const streamingConstructor = StreamingConstructor.getInstance()
+  const [horiTickArray, setHoriTickArray] = useState([])
   var strainGauge = streamingConstructor.getChannelById(channelId)
   const vertAxisMaxLength = 8
 
@@ -20,9 +21,12 @@ export default ChannelChart = ({ channelData, channelId }) => {
           : (strainGauge.getLatestDataPoint().x - vertAxisMaxLength)
         , max: strainGauge.getLatestDataPoint().x + 0.01
       }}
-      yDomain={{ min: -6, max: 6 }}
+      
+      yDomain={(getMinYValue(channelData) !== getMaxYValue(channelData) 
+        ? { min: Math.floor(getMinYValue(channelData)), max: Math.ceil(getMaxYValue(channelData)) } 
+        : { min: Math.floor(getMinYValue(channelData)) - 1, max: Math.ceil(getMaxYValue(channelData)) + 1 })}
     >
-      <VerticalAxis tickValues={[-20, -18, -16, -14, -12, -10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]} />
+      <VerticalAxis tickValues={calculateVertTicks(channelData)} />
       <HorizontalAxis tickValues={calculateHoriTicks(channelData, vertAxisMaxLength)} />
       <Line
         theme={{ stroke: { color: colors.stroke, width: 1 } }}
@@ -40,5 +44,50 @@ const calculateHoriTicks = (channelData, vertAxisMaxLength) => {
   for (let i = 0; i <= vertAxisMaxLength / 2; i++)
     tickArray.push(largestArrayValue - 8 + (i * 2))
 
+  return tickArray
+}
+
+const getMinYValue = (channelData) => {
+  let smallestYValue = channelData[0].y
+  for (let i = 0; i < channelData.length; i++) {
+    if (smallestYValue > channelData[i].y)
+      smallestYValue = channelData[i].y
+  }
+  return smallestYValue
+}
+
+const getMaxYValue = (channelData) => {
+  let largestYValue = channelData[0].y
+  for (let i = 0; i < channelData.length; i++) {
+    if (largestYValue < channelData[i].y)
+      largestYValue = channelData[i].y
+  }
+  return largestYValue
+}
+
+const calculateVertTicks = (channelData) => {
+  const minimumYValue = getMinYValue(channelData)
+  const maximumYValue = getMaxYValue(channelData)
+
+  const yValueSpan = maximumYValue - minimumYValue
+  let tickArray = []
+
+  if (yValueSpan < 6) {
+    for (let i = 0; i <= yValueSpan + 1; i++) {
+      tickArray.push(Math.floor(minimumYValue + i))
+    }
+  } else if (yValueSpan < 11) {
+    for (let i = 0; i <= (yValueSpan / 2) + 1; i++) {
+      tickArray.push(Math.floor(minimumYValue + i * 2))
+    }
+  } else if (yValueSpan < 21) {
+    for (let i = 0; i <= (yValueSpan / 4) + 1; i++) {
+      tickArray.push(Math.floor(minimumYValue + i * 4))
+    }
+  } else {
+    for (let i = 0; i <= (yValueSpan / 5) + 1; i++) {
+      tickArray.push(Math.floor(minimumYValue + i * 5))
+    }
+  }
   return tickArray
 }
