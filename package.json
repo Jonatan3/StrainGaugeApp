@@ -22,6 +22,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-permissions": "^3.1.0",
     "react-native-qrcode-scanner": "^1.5.4",
+    "react-native-reanimated": "^2.2.4",
     "react-native-responsive-linechart": "^5.7.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.15.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "@babel/runtime": "7.15.4",
     "@react-native-community/eslint-config": "2.0.0",
     "@types/jest": "^27.0.2",
@@ -38,7 +40,9 @@
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "26.6.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "7.14.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "26.6.3",
     "metro-react-native-babel-preset": "0.66.2",
     "react-native-svg-transformer": "^0.14.3",
@@ -46,6 +50,9 @@
     "typescript": "^4.5.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ]
   }
 }

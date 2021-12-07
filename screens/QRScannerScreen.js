@@ -5,7 +5,7 @@ import { View, ToastAndroid, Dimensions } from 'react-native'
 import StreamingConstructor from '../Streaming/StreamingConstructor'
 import QRScannerOverlay from '../components/QRScannerOverlay'
 
-export default function QRCodeScannerScreen({ route, navigation }) {
+export default function QRCodeScannerScreen({ navigation }) {
   const [flash, setFlash] = useState(RNCamera.Constants.FlashMode.off)
 
   const onFlashClick = () => {

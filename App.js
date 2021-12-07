@@ -3,7 +3,7 @@ import Channels from './screens/Channels'
 import StrainGauge from './screens/StrainGauge'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import QRCodeScannerScreen from './screens/QRCodeScannerScreen';
+import QRCodeScannerScreen from './screens/QRScannerScreen';
 import colors from './resources/colors';
 
 const Stack = createNativeStackNavigator();

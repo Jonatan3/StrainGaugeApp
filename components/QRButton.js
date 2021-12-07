@@ -7,7 +7,7 @@ import colors from '../resources/colors'
 export default function QRCodeButton({ onPressHandler }) {
   return (
     <View style={{ flex: 1, alignSelf: 'center' }}>
-      <TouchableOpacity onPress={() => onPressHandler()}>
+      <TouchableOpacity onPress={() => onPressHandler()} >
         <View style={styles.button}>
           <Text style={{ color: 'white', padding: 8, paddingLeft: 16 }}>
             Scan QR

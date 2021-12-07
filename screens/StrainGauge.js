@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import StreamingConstructor from '../Streaming/StreamingConstructor'
-import QRCodeButton from '../components/QRCodeButton'
+import QRCodeButton from '../components/QRButton'
 import ChannelChart from '../components/ChannelChart'
 import colors from '../resources/colors'
 

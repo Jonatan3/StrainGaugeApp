@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableWithoutFeedback } from 'react-native'
 import StreamingConstructor from '../Streaming/StreamingConstructor';
-import QRCodeButtonNoText from '../components/QRCodeButtonNoText';
+import QRCodeButtonNoText from '../components/QRButtonNoText';
 import colors from '../resources/colors';
 import { Dimensions } from 'react-native'
 import StreamingConnector from '../Streaming/StreamingConnector';
