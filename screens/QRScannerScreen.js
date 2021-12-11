@@ -19,12 +19,12 @@ export default function QRCodeScannerScreen({ navigation }) {
 
   const onSucces = (e) => {
     if (StreamingConstructor.getInstance().getChannelById(parseInt(e.data)) !== null) {
-      setTimeout(() => { this.scanner.reactivate() }, 100)
+      //setTimeout(() => { this.scanner.reactivate() }, 100)
       navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
     }
     else {
       ToastAndroid.show('ERROR! no strain gauge with id of ' + e.data + ' found!', ToastAndroid.LONG)
-      setTimeout(() => { this.scanner.reactivate() }, 3000)
+      //setTimeout(() => { this.scanner.reactivate() }, 3000)
     }
   }
 
@@ -33,9 +33,10 @@ export default function QRCodeScannerScreen({ navigation }) {
       <QRCodeScanner
         flashMode={flash}
         showMarker={true}
-        onRead={() => onSucces()}
+        onRead={(e) => onSucces(e)}
         cameraStyle={{ height: Dimensions.get('window').height }}
-        ref={(node) => { this.scanner = node }}
+        reactivate={true}
+        reactivateTimeout={1000}
         customMarker={
           <QRScannerOverlay onFlashClick={onFlashClick} flash={flash} navigation={navigation} />
         }
