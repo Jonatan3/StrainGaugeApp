@@ -19,12 +19,10 @@ export default function QRCodeScannerScreen({ navigation }) {
 
   const onSucces = (e) => {
     if (StreamingConstructor.getInstance().getChannelById(parseInt(e.data)) !== null) {
-      //setTimeout(() => { this.scanner.reactivate() }, 100)
       navigation.push('Strain Gauge', { itemId: parseInt(e.data) })
     }
     else {
       ToastAndroid.show('ERROR! no strain gauge with id of ' + e.data + ' found!', ToastAndroid.LONG)
-      //setTimeout(() => { this.scanner.reactivate() }, 3000)
     }
   }
 

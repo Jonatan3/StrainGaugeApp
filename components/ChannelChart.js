@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Chart, Line, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
 import colors from "../resources/colors";
 import StreamingConstructor from "../Streaming/StreamingConstructor";

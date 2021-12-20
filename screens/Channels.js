@@ -38,10 +38,6 @@ export default function Channels({ navigation }) {
           </TouchableWithoutFeedback>
         )}
       />
-      {/* TODO change this back to : <View style={{ flex: 1, alignSelf: 'flex-end', justifyContent: 'flex-end', paddingBottom: 30, paddingRight: 30 }}>
-        <QRCodeButtonNoText onPressHandler={() => navigation.push('QR Scanner')}  />
-      </View> 
-      MEN DET ER LORT!!!!*/}
       <View style={{ position: 'absolute', top: (windowHeight/1.25), right: (windowWidth / 10) }}>
         <QRCodeButtonNoText onPressHandler={() => navigation.push('QR Scanner')}  />
       </View>
