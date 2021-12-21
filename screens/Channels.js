@@ -8,8 +8,8 @@ import StreamingConnector from '../Streaming/StreamingConnector';
 
 export default function Channels({ navigation }) {
 
-  const streamingConnector = new StreamingConnector()
-  streamingConnector.connect()
+  //const streamingConnector = new StreamingConnector()
+  //streamingConnector.connect()
 
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;

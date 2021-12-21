@@ -45,7 +45,7 @@ export default function StrainGauge({ route, navigation }) {
       </Text>
       <View style={{ alignItems: 'center', flex: 4, }}>
         <View style={{ width: '95%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-          {<ChannelChart channelData={channelData} channelId={strainGauge.getId()} />}
+          {<ChannelChart channelData={channelData} />}
         </View>
       </View>
 

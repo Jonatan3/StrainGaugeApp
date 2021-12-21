@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chart, Line, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
 import colors from "../resources/colors";
 import StreamingConstructor from "../Streaming/StreamingConstructor";
 
-export default function ChannelChart({ channelId }) {
-  const streamingConstructor = StreamingConstructor.getInstance()
-  var strainGauge = streamingConstructor.getChannelById(channelId)
+export default function ChannelChart({ channelData }) {
   const vertAxisMaxLength = 8
 
   return (
     <Chart
       style={{ height: '100%', width: '100%' }}
 
-      data={[...strainGauge.getChannelData()]}
+      data={[...channelData]}
       padding={{ left: 32, bottom: 20, right: 20, top: 20 }}
       xDomain={{
-        min: (strainGauge.getLatestDataPoint().x < vertAxisMaxLength)
+        min: (channelData[channelData.length - 1].x < vertAxisMaxLength)
           ? 0
-          : (strainGauge.getLatestDataPoint().x - vertAxisMaxLength)
-        , max: strainGauge.getLatestDataPoint().x + 0.01
+          : (channelData[channelData.length - 1].x - vertAxisMaxLength)
+        , max: channelData[channelData.length - 1].x + 0.01
       }}
       
-      yDomain={(getMinYValue(strainGauge.getChannelData()) !== getMaxYValue(strainGauge.getChannelData()) 
-        ? { min: Math.floor(getMinYValue(strainGauge.getChannelData())), max: Math.ceil(getMaxYValue(strainGauge.getChannelData())) } 
-        : { min: Math.floor(getMinYValue(strainGauge.getChannelData())) - 1, max: Math.ceil(getMaxYValue(strainGauge.getChannelData())) + 1 })}
+      yDomain={(getMinYValue(channelData) !== getMaxYValue(channelData) 
+        ? { min: Math.floor(getMinYValue(channelData)), max: Math.ceil(getMaxYValue(channelData)) } 
+        : { min: Math.floor(getMinYValue(channelData)) - 1, max: Math.ceil(getMaxYValue(channelData)) + 1 })}
     >
-      <VerticalAxis tickValues={calculateVertTicks(strainGauge.getChannelData())} />
-      <HorizontalAxis tickValues={calculateHoriTicks(strainGauge.getChannelData(), vertAxisMaxLength)} />
+      <VerticalAxis tickValues={calculateVertTicks(channelData)} />
+      <HorizontalAxis tickValues={calculateHoriTicks(channelData, vertAxisMaxLength)} />
       <Line
         theme={{ stroke: { color: colors.stroke, width: 1 } }}
-        smoothing="bezier"
       />
 
     </Chart>
