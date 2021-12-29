@@ -10,6 +10,7 @@ export default class StreamingConnector {
     tableBufferManager: TableBufferManager
 
     async connect() {
+        // URL
         const graphqlurl = 'http://192.168.137.1:25702/'
         //this.streamingClient = new StreamingClient(graphqlurl)
 
