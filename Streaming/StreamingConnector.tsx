@@ -1,13 +1,13 @@
 import React from "react";
-import { RingBuffer, StreamingClient, TableBufferManager } from '@hbk/ui-streamingclient'
+//import { RingBuffer, StreamingClient, TableBufferManager } from '@hbk/ui-streamingclient'
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 // This class might never work!
 
 export default class StreamingConnector {
-    streamingClient: StreamingClient
+    //streamingClient: StreamingClient
     engineId: string
-    tableBufferManager: TableBufferManager
+    //tableBufferManager: TableBufferManager
 
     async connect() {
         // URL

@@ -6,7 +6,15 @@ import ChannelChart from '../components/ChannelChart'
 import colors from '../resources/colors'
 
 export default function StrainGauge({ route, navigation }) {
-  const strainGauge = StreamingConstructor.getInstance().getChannelById(route.params.itemId)
+  var strainGauge = null
+  // This fixes a test, there where problems with adding route params to the component. This is not a good solution!!!
+  if(route.params !== undefined) {
+    strainGauge = StreamingConstructor.getInstance().getChannelById(route.params.itemId) 
+  }
+  // Use test dummyChannel if no route is passed.
+  else {
+    strainGauge = StreamingConstructor.getInstance().getChannelById(5156)
+  }
   const [channelData, setChannelData] = useState(strainGauge.getChannelData())
   var interval = null
 

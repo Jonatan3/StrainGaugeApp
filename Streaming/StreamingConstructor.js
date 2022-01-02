@@ -1,4 +1,3 @@
-import React from 'react'
 import DummyChannel from './DummyChannel'
 
 export default class StreamingConstructor {

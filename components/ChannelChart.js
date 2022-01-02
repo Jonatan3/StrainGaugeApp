@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Chart, Line, HorizontalAxis, VerticalAxis } from 'react-native-responsive-linechart'
 import colors from "../resources/colors";
-import StreamingConstructor from "../Streaming/StreamingConstructor";
 
 export default function ChannelChart({ channelData }) {
   const vertAxisMaxLength = 8
@@ -9,7 +8,6 @@ export default function ChannelChart({ channelData }) {
   return (
     <Chart
       style={{ height: '100%', width: '100%' }}
-
       data={[...channelData]}
       padding={{ left: 32, bottom: 20, right: 20, top: 20 }}
       xDomain={{
@@ -27,6 +25,7 @@ export default function ChannelChart({ channelData }) {
       <HorizontalAxis tickValues={calculateHoriTicks(channelData, vertAxisMaxLength)} />
       <Line
         theme={{ stroke: { color: colors.stroke, width: 1 } }}
+        smoothing="bezier"
       />
 
     </Chart>

@@ -1,5 +1,3 @@
-import React, {useEffect} from "react"
-
 export default class DummyChannel {
     constructor(id, name, type, connectionStatus) {
         this.name = name
