@@ -4,16 +4,16 @@ export default class StreamingConstructor {
   static myInstance = null
 
   dummyChannels = [
-    new DummyChannel(5156, "Goddag", "Half bridge"),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", true),
-    new DummyChannel(Math.floor(Math.random() * 10000), "Goddag", "Half bridge", false),
+    new DummyChannel(5156, "H236BWO", "Half bridge"),
+    new DummyChannel(Math.floor(Math.random() * 10000), "E637BPO", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "J224BW9", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "M236BWO", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "E991UEI", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "D419PCG", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "D897ODK", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "I354CPN", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "G896DIS", "Half bridge", true),
+    new DummyChannel(Math.floor(Math.random() * 10000), "C483DOE", "Half bridge", false),
   ]
 
   static getInstance() {
